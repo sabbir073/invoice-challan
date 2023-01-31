@@ -28,8 +28,10 @@ include("config.php");
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" type="text/css" href="assets/css/fontawesome.css">
+    <!-- Font Awesome 
+    <link rel="stylesheet" type="text/css" href="assets/css/fontawesome.css">-->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- ico-font -->
     <link rel="stylesheet" type="text/css" href="assets/css/icofont.css">
@@ -210,7 +212,7 @@ include("config.php");
                 </li>
                 <li>
                     <a href="javascript:void(0)" class="sidebar-header">
-                    <i class="fa fa-user-o" aria-hidden="true"></i> <span>Users</span>
+                    <i class="fa-solid fa-user"></i> <span>Users</span>
                         <i class="fa fa-angle-right pull-right"></i>
                     </a>
                     <ul class="sidebar-submenu">

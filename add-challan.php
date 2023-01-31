@@ -152,7 +152,7 @@
                                             
                                            </div>
                                     <div class="card-footer">
-                                        <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                                        <button type="button" id="challansubmit" class="btn btn-primary">Submit</button>
                                     </div>
                                     </form>
                                 </div>
@@ -202,7 +202,7 @@ $('document').ready(function() {
     var quantity = $('#quantity').val();
     if(quantity !== ''){
         //console.log('Looking good');
-        $("#addrow").append('<tr><th scope="row">'+desofgood+'</th><td>'+color+'</td><td>'+size+'</td><td>'+quantity+'</td></tr>');
+        $("#addrow").append('<tr><th class="productname" scope="row">'+desofgood+'</th><td class="productcolor">'+color+'</td><td class="productsize">'+size+'</td><td class="productq">'+quantity+'</td></tr>');
     }
     else{
         //console.log('empty');
@@ -229,6 +229,33 @@ $('document').ready(function() {
 			   }   	
 			} 
 		});
- 	}); 
+ 	});
+
+    //submit data to mysql
+    $("#challansubmit").click(function() {
+      var to_company = $('#clientcompanyname').val();
+      var contact_name = $('#clientname').val();
+      var address = $('#clientcompanyaddress').val();
+      var style_number = $('#styleno').val();
+      var job_number = $('#jobno').val();
+    $("#addrow tr").each(function() {
+      var product = $(this).find(".productname").text();
+      var color = $(this).find(".productcolor").text();
+      var size = $(this).find(".productsize").text();
+      var quantity = $(this).find(".productq").text();
+      
+
+      $.ajax({
+        type: "POST",
+        url: "challansubmit.php",
+        data: { product: product, color: color, size: size, quantity: quantity, to_company: to_company, contact_name: contact_name, address: address, style_number: style_number, job_number: job_number },
+        success: function(response) {
+          //alert("Data submitted successfully!");
+          console.log('submitted successfully!');
+        }
+      });
+    });
+  });
+
 })
 </script>
