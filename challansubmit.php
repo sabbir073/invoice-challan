@@ -12,6 +12,10 @@ if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
 
+
+
+$challan_no = $_POST["challan_no"];
+
 $product = $_POST["product"];
 $color = $_POST["color"];
 $size = $_POST["size"];
@@ -22,7 +26,7 @@ $address = $_POST["address"];
 $style_number = $_POST["style_number"];
 $job_number = $_POST["job_number"];
 
-$sql = "INSERT INTO `challan`(`to_company`, `contact_name`, `address`, `style_number`, `job_number`, `product_name`, `color`, `size`, `quantity`) VALUES ('$to_company','$contact_name','$address','$style_number','$job_number','$product','$color','$size','$quantity')";
+$sql = "INSERT INTO `challan`(`challan_no`, `to_company`, `contact_name`, `address`, `style_number`, `job_number`, `product_name`, `color`, `size`, `quantity`) VALUES ('$challan_no','$to_company','$contact_name','$address','$style_number','$job_number','$product','$color','$size','$quantity')";
 
 if (mysqli_query($conn, $sql)) {
   echo "Record added successfully";

@@ -231,13 +231,23 @@ $('document').ready(function() {
 		});
  	});
 
+     function getRandom(length) {
+
+        return Math.floor(Math.pow(10, length-1) + Math.random() * 9 * Math.pow(10, length-1));
+
+        }
+
     //submit data to mysql
-    $("#challansubmit").click(function() {
+    $("#challansubmit").click(function(e) {
+      e.preventDefault();
       var to_company = $('#clientcompanyname').val();
       var contact_name = $('#clientname').val();
       var address = $('#clientcompanyaddress').val();
       var style_number = $('#styleno').val();
       var job_number = $('#jobno').val();
+
+      let challan_no = getRandom(7);
+
     $("#addrow tr").each(function() {
       var product = $(this).find(".productname").text();
       var color = $(this).find(".productcolor").text();
@@ -248,13 +258,20 @@ $('document').ready(function() {
       $.ajax({
         type: "POST",
         url: "challansubmit.php",
-        data: { product: product, color: color, size: size, quantity: quantity, to_company: to_company, contact_name: contact_name, address: address, style_number: style_number, job_number: job_number },
+        data: { product: product, color: color, size: size, quantity: quantity, to_company: to_company, contact_name: contact_name, address: address, style_number: style_number, job_number: job_number, challan_no: challan_no },
         success: function(response) {
           //alert("Data submitted successfully!");
           console.log('submitted successfully!');
         }
       });
     });
+
+    swal({title: "Success!", text: "Challan Created Successfully!", type: 
+    "success"}).then(function(){ 
+    location.reload();
+    }
+    );
+
   });
 
 })

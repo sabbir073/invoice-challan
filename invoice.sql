@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 31, 2023 at 03:19 PM
+-- Generation Time: Jan 31, 2023 at 03:53 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `challan` (
   `id` int(11) NOT NULL,
-  `challan_no` int(7) NOT NULL,
+  `challan_no` int(20) NOT NULL,
   `date` timestamp NOT NULL DEFAULT current_timestamp(),
   `to_company` varchar(100) NOT NULL,
   `contact_name` varchar(100) NOT NULL,
@@ -47,7 +47,17 @@ CREATE TABLE `challan` (
 --
 
 INSERT INTO `challan` (`id`, `challan_no`, `date`, `to_company`, `contact_name`, `address`, `style_number`, `job_number`, `product_name`, `color`, `size`, `quantity`) VALUES
-(1, 0, '2023-01-31 14:04:44', 'xubisoft', 'sabbir', 'house21', '212121', '232323', 'sabbir', 'Red', 'xl', '100');
+(12, 2, '2023-01-31 14:46:38', 'xubisoft', 'sabbir', 'house21', '648764', '4747', 'sabbir', 'Red', 'xl', '300'),
+(13, 2, '2023-01-31 14:46:38', 'xubisoft', 'sabbir', 'house21', '648764', '4747', 'sabbir', 'Red', 'xl', '100'),
+(14, 2, '2023-01-31 14:46:38', 'xubisoft', 'sabbir', 'house21', '648764', '4747', 'sabbir', 'Red', 'xl', '200'),
+(15, 7616922, '2023-01-31 14:49:23', 'xubisoft', 'sabbir', 'house21', '7373568', '3683568', 'sabbir', 'Red', 'xl', '50'),
+(16, 7616922, '2023-01-31 14:49:23', 'xubisoft', 'sabbir', 'house21', '7373568', '3683568', 'sabbir', 'Red', 'xl', '20'),
+(17, 7616922, '2023-01-31 14:49:23', 'xubisoft', 'sabbir', 'house21', '7373568', '3683568', 'sabbir', 'Red', 'xl', '10'),
+(18, 1780474, '2023-01-31 14:51:56', 'xubisoft', 'sabbir', 'house21', '7878568', '568658', 'sabbir', 'Red', 'xl', '10'),
+(19, 1780474, '2023-01-31 14:51:56', 'xubisoft', 'sabbir', 'house21', '7878568', '568658', 'sabbir', 'Red', 'xl', '20'),
+(20, 1780474, '2023-01-31 14:51:56', 'xubisoft', 'sabbir', 'house21', '7878568', '568658', 'sabbir', 'Red', 'xl', '30'),
+(21, 1491591, '2023-01-31 14:53:15', 'xubisoft', 'sabbir', 'house21', '272472', '26727', 'sabbir', 'Red', 'xl', '10'),
+(22, 1491591, '2023-01-31 14:53:15', 'xubisoft', 'sabbir', 'house21', '272472', '26727', 'sabbir', 'Red', 'xl', '20');
 
 -- --------------------------------------------------------
 
@@ -217,8 +227,7 @@ INSERT INTO `vendors` (`id`, `vendorname`, `vendoremail`, `vendorphone`, `vendor
 -- Indexes for table `challan`
 --
 ALTER TABLE `challan`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `challan_no` (`challan_no`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `clients`
@@ -271,7 +280,7 @@ ALTER TABLE `vendors`
 -- AUTO_INCREMENT for table `challan`
 --
 ALTER TABLE `challan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `clients`
