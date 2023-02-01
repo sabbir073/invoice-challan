@@ -166,79 +166,60 @@ while ($product = mysqli_fetch_assoc($product_result)) {
                             <div class="invoice-center">
                                 <div class="order-summary">
                                     <div class="table-outer">
-                                        <h4>01. Shirt</h4>
                                         <table class="default-table invoice-table">
                                             <thead>
                                             <tr>
-                                                <th>Color</th>
-                                                <th>XS</th>
-                                                <th>S</th>
-                                                <th>M</th>
-                                                <th>L</th>
+                                                <th>SL.</th>
+                                                <th>Item Name</th>
+                                                <th>Description Of Goods</th>
                                                 <th>Total</th>
                                             </tr>
                                             </thead>
 
                                             <tbody>
                                             <tr>
-                                                <td>Red</td>
-                                                <td>100 </td>
-                                                <td>200</td>
-                                                <td>300</td>
-                                                <td>400</td>
-                                                <td>1000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Green</td>
-                                                <td>100 </td>
-                                                <td>200</td>
-                                                <td>300</td>
-                                                <td>400</td>
-                                                <td>1000</td>
-                                            </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="invoice-center">
-                                <div class="order-summary">
-                                    <div class="table-outer">
-                                        <h4>01. Shirt</h4>
-                                        <table class="default-table invoice-table">
-                                            <thead>
-                                            <tr>
-                                                <th>Color</th>
-                                                <th>XS</th>
-                                                <th>S</th>
-                                                <th>M</th>
-                                                <th>L</th>
-                                                <th>Total</th>
-                                            </tr>
-                                            </thead>
-
-                                            <tbody>
-                                            <tr>
-                                                <td>Red</td>
-                                                <td>100 </td>
-                                                <td>200</td>
-                                                <td>300</td>
-                                                <td>400</td>
-                                                <td>1000</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Green</td>
-                                                <td>100 </td>
-                                                <td>200</td>
-                                                <td>300</td>
-                                                <td>400</td>
-                                                <td>1000</td>
+                                                <td>01</td>
+                                                <td>Shirt </td>
+                                                <td>
+                                                <table>
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Color</th>
+                                                        <th>XS</th>
+                                                        <th>S</th>
+                                                        <th>M</th>
+                                                        <th>L</th>
+                                                        <th>Total</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr>
+                                                        <td>Red</td>
+                                                        <td>100</td>
+                                                        <td>100</td>
+                                                        <td>100</td>
+                                                        <td>100</td>
+                                                        <td>400</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Red</td>
+                                                        <td>100</td>
+                                                        <td>100</td>
+                                                        <td>100</td>
+                                                        <td>100</td>
+                                                        <td>400</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                                </td>
+                                                <td>10200</td>
                                             </tr>
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
+                            
                             <div class="invoice-bottom">
                                 <div class="row">
                                     <div class="col-lg-6 col-md-7 col-sm-7">
