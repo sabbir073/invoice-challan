@@ -167,7 +167,7 @@ include("config.php");
                     </a>
                     <ul class="sidebar-submenu">
                         <li><a href="add-challan.php"><i class="fa fa-angle-right"></i>Add New</a></li>
-                        <li><a href="layout-dark.html"><i class="fa fa-angle-right"></i>View All</a></li>
+                        <li><a href="challan-all.php"><i class="fa fa-angle-right"></i>View All</a></li>
                     </ul>
                 </li>
                 <li>
