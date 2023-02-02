@@ -25,8 +25,9 @@ $contact_name = $_POST["contact_name"];
 $address = $_POST["address"];
 $style_number = $_POST["style_number"];
 $job_number = $_POST["job_number"];
+$proremarks = $_POST["proremarks"];
 
-$sql = "INSERT INTO `challan`(`challan_no`, `to_company`, `contact_name`, `address`, `style_number`, `job_number`, `product_name`, `color`, `size`, `quantity`) VALUES ('$challan_no','$to_company','$contact_name','$address','$style_number','$job_number','$product','$color','$size','$quantity')";
+$sql = "INSERT INTO `challan`(`challan_no`, `to_company`, `contact_name`, `address`, `style_number`, `job_number`, `product_name`, `color`, `size`, `quantity`, `remarks`) VALUES ('$challan_no','$to_company','$contact_name','$address','$style_number','$job_number','$product','$color','$size','$quantity', '$proremarks')";
 
 if (mysqli_query($conn, $sql)) {
   echo "Record added successfully";

@@ -30,7 +30,7 @@
                                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="theme-form">
                                     <div class="card-body">
                                         <div class="row">
-                                        <div class="mb-3 col-md-6">
+                                            <div class="mb-3 col-md-6">
                                                 <label for="clientcompanyname" class="col-form-label pt-0">To M/S</label>
                                                 <select  class="form-control" id="clientcompanyname" name="clientcompanyname" aria-describedby="company name">
                                                 <?php
@@ -75,6 +75,10 @@
                                                         ?>
                                                 
                                             </div>
+
+
+
+
                                             
                                             <div class="row">
                                             <div class="mb-3 col-md-6">
@@ -142,7 +146,19 @@
                                                     <div class="col-md-2">
                                                     <button type="button" id="save" class="btn btn-primary btn-small mt-4">Save</button>
                                                     </div>
+
+                                                    
+
+                                                    
                                                 </div>
+
+                                                <div class="row">
+                                                        <div class="col-md-12">
+                                                        <label for="remark" class="col-form-label pt-0">Remarks</label>
+                                                        <textarea class="form-control" name="remark" id="remark" placeholder="Product Remarks" cols="3" rows="3"></textarea>
+                                                        </div>
+                                                </div>
+                                                
                                                 
                                             </div>
                                             
@@ -151,6 +167,7 @@
                                             
                                             
                                            </div>
+                                           
                                     <div class="card-footer">
                                         <button type="button" id="challansubmit" class="btn btn-primary">Submit</button>
                                     </div>
@@ -245,6 +262,7 @@ $('document').ready(function() {
       var address = $('#clientcompanyaddress').val();
       var style_number = $('#styleno').val();
       var job_number = $('#jobno').val();
+      var proremarks = $('#remark').val();
 
       let challan_no = getRandom(7);
 
@@ -258,7 +276,7 @@ $('document').ready(function() {
       $.ajax({
         type: "POST",
         url: "challansubmit.php",
-        data: { product: product, color: color, size: size, quantity: quantity, to_company: to_company, contact_name: contact_name, address: address, style_number: style_number, job_number: job_number, challan_no: challan_no },
+        data: { product: product, color: color, size: size, quantity: quantity, to_company: to_company, contact_name: contact_name, address: address, style_number: style_number, job_number: job_number, challan_no: challan_no, proremarks: proremarks },
         success: function(response) {
           //alert("Data submitted successfully!");
           console.log('submitted successfully!');

@@ -13,54 +13,11 @@ include("config.php");
 
 <?php
 
-/**$url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$url = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 $id = trim($url,'/');
 $id = explode('/',$id);
 $id  = end($id);
 
-
-$product_query = "SELECT DISTINCT product_name FROM challan WHERE challan_no = '$id'";
-$product_result = mysqli_query($link, $product_query);
-while ($product = mysqli_fetch_assoc($product_result)) {
-  echo "<h2>" . $product['product_name'] . "</h2>";
-  
-  // Get all unique sizes for the current product
-  $size_query = "SELECT DISTINCT size FROM challan WHERE product_name = '" . $product['product_name'] . "'";
-  $size_result = mysqli_query($link, $size_query);
-  $sizes = array();
-  while ($size = mysqli_fetch_assoc($size_result)) {
-    $sizes[] = $size['size'];
-  }
-  
-  echo "<table>";
-  echo "<thead>";
-  echo "<tr>";
-  echo "<th>Color</th>";
-  foreach ($sizes as $size) {
-    echo "<th>" . $size . "</th>";
-  }
-  echo "</tr>";
-  echo "</thead>";
-  
-  echo "<tbody>";
-  // Get all colors for the current product
-  $color_query = "SELECT DISTINCT color FROM challan WHERE product_name = '" . $product['product_name'] . "'";
-  $color_result = mysqli_query($link, $color_query);
-  while ($color = mysqli_fetch_assoc($color_result)) {
-    echo "<tr>";
-    echo "<td>" . $color['color'] . "</td>";
-    foreach ($sizes as $size) {
-      // Get the quantity for the current product, color, and size
-      $quantity_query = "SELECT quantity FROM challan WHERE product_name = '" . $product['product_name'] . "' AND color = '" . $color['color'] . "' AND size = '" . $size . "'";
-      $quantity_result = mysqli_query($link, $quantity_query);
-      $quantity = mysqli_fetch_assoc($quantity_result)['quantity'];
-      echo "<td>" . $quantity . "</td>";
-    }
-    echo "</tr>";
-  }
-  echo "</tbody>";
-  echo "</table>";
-}**/
 ?>
 
 
@@ -116,22 +73,38 @@ while ($product = mysqli_fetch_assoc($product_result)) {
                                     </div>
                                     <div class="col-sm-4">
                                         <div class="invoice-number-inner">
-                                            <h2 class="name">Challan No: #45613</h2>
-                                            <p class="mb-0">Invoice Date: <span>21 Sep 2021</span></p>
+                                            <?php
+                                                $date_query = "SELECT DISTINCT `date` FROM challan WHERE challan_no = '$id'";
+                                                $date_result = mysqli_query($link, $date_query);
+                                                $date = mysqli_fetch_assoc($date_result);
+                                                $timestamp = date('d F Y', strtotime($date['date']));
+                                            ?>
+                                            <h2 class="name">Challan No: #<?php echo $id;?></h2>
+                                            <p class="mb-0">Date: <span><?php echo $timestamp;?></span></p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="invoice-top">
+                                <?php
+                                    $info_query = "SELECT DISTINCT `to_company`, `address`, `contact_name`, `style_number`, `job_number` FROM challan WHERE challan_no = '$id'";
+                                    $info_result = mysqli_query($link, $info_query);
+                                    $info = mysqli_fetch_assoc($info_result);
+                                    
+                                    $to_company = $info['to_company'];
+                                    $address = $info['address'];
+                                    $contact_name = $info['contact_name'];
+                                    $style_number = $info['style_number'];
+                                    $job_number = $info['job_number'];
+                                ?>
                                 <div class="row">
                                     <div class="col-sm-4 mb-30">
                                         <div class="invoice-number">
                                             <h4 class="inv-title-1">To, M/S</h4>
-                                            <h2 class="name mb-10">Jhon Smith</h2>
+                                            <h2 class="name mb-10"><?php echo $to_company;?></h2>
                                             <p class="invo-addr-1 mb-0">
                                                 <span class="inv-title-1">Address:</span>
-                                                info@themevessel.com <br/>
-                                                21-12 Green Street, Meherpur<br/>
+                                                <?php echo $address;?>
                                             </p>
                                         </div>
                                     </div>
@@ -139,10 +112,10 @@ while ($product = mysqli_fetch_assoc($product_result)) {
                                         <div class="invoice-number">
                                             <div class="invoice-number-inner">
                                                 <h4 class="inv-title-1">Buyer</h4>
-                                                <h2 class="name mb-10">Animas Roky</h2>
+                                                <h2 class="name mb-10"><?php echo $contact_name;?></h2>
                                                 <p class="invo-addr-1 mb-0">
-                                                    <span class="inv-title-1">Style No.</span> #322176  <br/>
-                                                    <span class="inv-title-1">Job No.</span> #322176  <br/>
+                                                    <span class="inv-title-1">Style No.</span> #<?php echo $style_number;?>  <br/>
+                                                    <span class="inv-title-1">Job No.</span> #<?php echo $job_number;?>  <br/>
                                                 </p>
                                             </div>
                                         </div>
@@ -177,77 +150,102 @@ while ($product = mysqli_fetch_assoc($product_result)) {
                                             </thead>
 
                                             <tbody>
-                                            <tr>
-                                                <td>01</td>
-                                                <td>Shirt </td>
-                                                <td>
-                                                <table>
-                                                    <thead>
-                                                    <tr>
-                                                        <th>Color</th>
-                                                        <th>XS</th>
-                                                        <th>S</th>
-                                                        <th>M</th>
-                                                        <th>L</th>
-                                                        <th>Total</th>
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <tr>
-                                                        <td>Red</td>
-                                                        <td>100</td>
-                                                        <td>100</td>
-                                                        <td>100</td>
-                                                        <td>100</td>
-                                                        <td>400</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Red</td>
-                                                        <td>100</td>
-                                                        <td>100</td>
-                                                        <td>100</td>
-                                                        <td>100</td>
-                                                        <td>400</td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                                </td>
-                                                <td>10200</td>
-                                            </tr>
+                                            <?php
+                                                $i = 1;
+                                                $grand_total = 0;
+                                                $product_query = "SELECT DISTINCT product_name FROM challan WHERE challan_no = '$id'";
+                                                $product_result = mysqli_query($link, $product_query);
+                                                while ($product = mysqli_fetch_assoc($product_result)){
+                                                    
+                                                    echo "<tr>";
+                                                    echo "<td>".$i."</td>";
+                                                    echo "<td>".$product['product_name']." </td>";
+                                                    echo "<td>";
+                                                        // Get all unique sizes for the current product
+                                                        $size_query = "SELECT DISTINCT size FROM challan WHERE product_name = '" . $product['product_name'] . "'";
+                                                        $size_result = mysqli_query($link, $size_query);
+                                                        $sizes = array();
+                                                        while ($size = mysqli_fetch_assoc($size_result)) {
+                                                            $sizes[] = $size['size'];
+                                                        }
+                                                        
+                                                        echo "<table>";
+                                                        echo "<thead>";
+                                                        echo "<tr>";
+                                                        echo "<th>Color</th>";
+                                                        foreach ($sizes as $size) {
+                                                            echo "<th>" . $size . "</th>";
+                                                        }
+                                                        echo "<th>Sub Total</th>";
+                                                        echo "</tr>";
+                                                        echo "</thead>";
+                                                        
+                                                        echo "<tbody>";
+                                                        // Get all colors for the current product
+                                                        $color_query = "SELECT DISTINCT color FROM challan WHERE product_name = '" . $product['product_name'] . "'";
+                                                        $color_result = mysqli_query($link, $color_query);
+                                                        while ($color = mysqli_fetch_assoc($color_result)) {
+                                                            echo "<tr>";
+                                                            echo "<td>" . $color['color'] . "</td>";
+                                                            $total_quantity = 0;
+                                                            foreach ($sizes as $size) {
+                                                            // Get the quantity for the current product, color, and size
+                                                            $quantity_query = "SELECT quantity FROM challan WHERE product_name = '" . $product['product_name'] . "' AND color = '" . $color['color'] . "' AND size = '" . $size . "'";
+                                                            $quantity_result = mysqli_query($link, $quantity_query);
+                                                            if ($quantity = mysqli_fetch_assoc($quantity_result)) {
+                                                                $quantity = $quantity['quantity'];
+                                                                $total_quantity += $quantity;
+                                                                echo "<td>" . $quantity . "</td>";
+                                                              } else {
+                                                                $quantity = 0;
+                                                                echo "<td>0</td>";
+                                                              }
+                                                            }
+                                                            echo "<td>" . $total_quantity . "</td>";
+                                                            echo "</tr>";
+                                                            $grand_total += $total_quantity;
+                                                        }
+                                                        echo "</tbody>";
+                                                        echo "</table>";
+                                                    echo "</td>";
+                                                
+                                                    echo "<td>".$grand_total."</td>";
+
+                                                    echo "</tr>";
+                                                    $i++;
+                                                    $grand_total = 0;
+                                                }
+                                            ?>
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
+                            <div class="table-outer pt-3 mb-30">
+                            <center><h5 class="text-dark">[This is remarks]</h5></center>
+                            </div>
                             
                             <div class="invoice-bottom">
                                 <div class="row">
-                                    <div class="col-lg-6 col-md-7 col-sm-7">
+                                    <div class="col-md-12">
                                         <div class="terms-conditions mb-30">
-                                            <h3 class="inv-title-1 mb-10">Terms & Conditions</h3>
-                                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.
+                                        <div class="d-flex justify-content-between">
+                                            <div style="text-decoration: overline;">Receiver's Signature</div>
+                                            <div style="text-decoration: overline;">Authorized Signature</div>
                                         </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-5 col-sm-5">
-                                        <div class="payment-method mb-30">
-                                            <h3 class="inv-title-1 mb-10">Payment Method</h3>
-                                            <ul class="payment-method-list-1 text-14">
-                                                <li><strong>Account No:</strong> 00 123 647 840</li>
-                                                <li><strong>Account Name:</strong> Jhon Doe</li>
-                                                <li><strong>Branch Name:</strong> xyz</li>
-                                            </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
                     <div class="invoice-btn-section clearfix d-print-none">
                         <a href="javascript:window.print()" class="btn btn-lg btn-print">
-                            <i class="fa fa-print"></i> Print Invoice
+                            <i class="fa fa-print"></i> Print Challan
                         </a>
                         <a id="invoice_download_btn" class="btn btn-lg btn-download btn-theme">
-                            <i class="fa fa-download"></i> Download Invoice
+                            <i class="fa fa-download"></i> Download Challan
                         </a>
                     </div>
                 </div>

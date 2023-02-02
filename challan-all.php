@@ -55,7 +55,10 @@ include("header.php");
                                                         <td>'.$row["challan_no"].'</td>
                                                         <td>'.$row["to_company"].'</td>
                                                         <td><a target="_blank" href="invoice.php/'.$row["challan_no"].'" class="btn btn-primary btn-sm">
-                                                        <i class="fas fa-eye"></i> View
+                                                        <i class="fas fa-eye"></i> Challan
+                                                      </a>
+                                                      <a target="_blank" href="gatepass.php/'.$row["challan_no"].'" class="btn btn-primary btn-sm">
+                                                        <i class="fas fa-eye"></i> Gate Pass
                                                       </a>
                                                       <a href="#" id="deleteinvo" data-id="'.$row["challan_no"].'" class="btn btn-danger btn-sm">
                                                         <i class="fas fa-trash"></i> Delete
