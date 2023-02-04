@@ -22,7 +22,7 @@ include("config.php");
     <meta name="author" content="pixelstrap">
     <link rel="icon" href="assets/images/favicon.png" type="image/x-icon"/>
     <link rel="shortcut icon" href="assets/images/favicon.png" type="image/x-icon"/>
-    <title>Universal - Premium Admin Template</title>
+    <title>Challan Software - Xubisoft Ltd.</title>
 
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800" rel="stylesheet">
@@ -30,8 +30,7 @@ include("config.php");
 
     <!-- Font Awesome 
     <link rel="stylesheet" type="text/css" href="assets/css/fontawesome.css">-->
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
 
     <!-- ico-font -->
     <link rel="stylesheet" type="text/css" href="assets/css/icofont.css">
@@ -162,7 +161,7 @@ include("config.php");
                 <li class="active">
                 <li>
                     <a href="javascript:void(0)" class="sidebar-header">
-                        <i class="icon-palette"></i> <span>Challan</span>
+                        <i class="fa-solid fa-bars nv-i"></i> <span>Challan</span>
                         <i class="fa fa-angle-right pull-right"></i>
                     </a>
                     <ul class="sidebar-submenu">
@@ -170,9 +169,10 @@ include("config.php");
                         <li><a href="challan-all.php"><i class="fa fa-angle-right"></i>View All</a></li>
                     </ul>
                 </li>
+                <?php if($_SESSION["role"] && $_SESSION["role"] == "admin") { ?>
                 <li>
                     <a href="javascript:void(0)" class="sidebar-header">
-                        <i class="icon-layout"></i> <span>Products</span>
+                        <i class="fa-brands fa-product-hunt nv-i"></i> <span>Products</span>
                         <i class="fa fa-angle-right pull-right"></i>
                     </a>
                     <ul class="sidebar-submenu">
@@ -182,7 +182,7 @@ include("config.php");
                 </li>
                 <li>
                     <a href="javascript:void(0)" class="sidebar-header">
-                        <i class="icon-layout"></i> <span>Units</span>
+                        <i class="fa-solid fa-helmet-un nv-i"></i> <span>Units</span>
                         <i class="fa fa-angle-right pull-right"></i>
                     </a>
                     <ul class="sidebar-submenu">
@@ -192,7 +192,7 @@ include("config.php");
                 </li>
                 <li>
                     <a href="javascript:void(0)" class="sidebar-header">
-                        <i class="icon-layout"></i> <span>Colors</span>
+                        <i class="fa-solid fa-fill-drip nv-i"></i> <span>Colors</span>
                         <i class="fa fa-angle-right pull-right"></i>
                     </a>
                     <ul class="sidebar-submenu">
@@ -202,7 +202,7 @@ include("config.php");
                 </li>
                 <li>
                     <a href="javascript:void(0)" class="sidebar-header">
-                        <i class="icon-layout"></i> <span>Sizes</span>
+                      <i class="fa-solid fa-pen-nib nv-i"></i><span>Sizes</span>
                         <i class="fa fa-angle-right pull-right"></i>
                     </a>
                     <ul class="sidebar-submenu">
@@ -212,7 +212,7 @@ include("config.php");
                 </li>
                 <li>
                     <a href="javascript:void(0)" class="sidebar-header">
-                    <i class="fa-solid fa-user"></i> <span>Users</span>
+                    <i class="fa-solid fa-user nv-i"></i> <span>Users</span>
                         <i class="fa fa-angle-right pull-right"></i>
                     </a>
                     <ul class="sidebar-submenu">
@@ -223,7 +223,7 @@ include("config.php");
                 
                 <li>
                     <a href="javascript:void(0)" class="sidebar-header">
-                        <i class="icon-cloud-down"></i> <span>Vendor</span>
+                       <i class="fa-solid fa-shop nv-i"></i> <span>Vendor</span>
                         <i class="fa fa-angle-right pull-right"></i>
                     </a>
                     <ul class="sidebar-submenu">
@@ -233,7 +233,7 @@ include("config.php");
                 </li>
                 <li>
                     <a href="javascript:void(0)" class="sidebar-header">
-                        <i class="icon-cloud-down"></i> <span>Clients</span>
+                        <i class="fa-solid fa-users nv-i"></i> <span>Clients</span>
                         <i class="fa fa-angle-right pull-right"></i>
                     </a>
                     <ul class="sidebar-submenu">
@@ -241,6 +241,7 @@ include("config.php");
                         <li><a href="clients-all.php"><i class="fa fa-angle-right"></i>View All</a></li>
                     </ul>
                 </li>
+                <?php } ?>
             </ul>
             <div class="sidebar-widget text-center">
                 <div class="sidebar-widget-top">
@@ -248,8 +249,8 @@ include("config.php");
                     <i class="icon-bell"></i>
                 </div>
                 <div class="sidebar-widget-bottom p-20 m-20">
-                    <p><span class="need-help-icon"><i class="fa fa-phone" aria-hidden="true"></i></span>+88017 1402 8710
-                        <br> <span class="need-help-iconmail"><i class="fa fa-envelope-o" aria-hidden="true"></i></span> info@xubisoft.com
+                    <p><span class="need-help-icon"><i class="fa-solid fa-phone"></i></span>+88017 1402 8710
+                        <br> <span class="need-help-iconmail"><i class="fa-solid fa-envelope"></i></span> info@xubisoft.com
                         <br><a href="https://xubisoft.com/" class="xubisoft"><img src="assets/images/xubisoft-logo.jpg" alt=""></a>
                     </p>
                 </div>

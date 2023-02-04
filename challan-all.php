@@ -60,7 +60,7 @@ include("header.php");
                                                       <a target="_blank" href="gatepass.php/'.$row["challan_no"].'" class="btn btn-primary btn-sm">
                                                         <i class="fas fa-eye"></i> Gate Pass
                                                       </a>
-                                                      <a href="#" id="deleteinvo" data-id="'.$row["challan_no"].'" class="btn btn-danger btn-sm">
+                                                      <a href="#" data-id="'.$row["challan_no"].'" class="btn btn-danger btn-sm deleteinvo">
                                                         <i class="fas fa-trash"></i> Delete
                                                       </a></td>
                                                     </tr>';
@@ -93,7 +93,7 @@ include("footer.php");
 
 <script>
   $(document).ready(function() {
-    $('#deleteinvo').click(function(e) {
+    $('.deleteinvo').click(function(e) {
       e.preventDefault();
       var id = $(this).data('id');
       swal({

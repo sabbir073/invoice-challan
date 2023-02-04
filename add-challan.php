@@ -186,6 +186,7 @@
                                                             <th scope="col">Color</th>
                                                             <th scope="col">Size</th>
                                                             <th scope="col">Quantity</th>
+                                                            <th scope="col">action</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody id="addrow">
@@ -219,7 +220,7 @@ $('document').ready(function() {
     var quantity = $('#quantity').val();
     if(quantity !== ''){
         //console.log('Looking good');
-        $("#addrow").append('<tr><th class="productname" scope="row">'+desofgood+'</th><td class="productcolor">'+color+'</td><td class="productsize">'+size+'</td><td class="productq">'+quantity+'</td></tr>');
+        $("#addrow").append('<tr><th class="productname" scope="row">'+desofgood+'</th><td class="productcolor">'+color+'</td><td class="productsize">'+size+'</td><td class="productq">'+quantity+'</td><td><button class="btn btn-danger btn-sm delentry"><i class="fas fa-trash-alt"></i> Delete</button></td></tr>');
     }
     else{
         //console.log('empty');
@@ -290,7 +291,20 @@ $('document').ready(function() {
     }
     );
 
-  });
+  }); 
 
 })
+</script>
+
+<script>
+  $(document).ready(function() {
+    // Use event delegation to bind the click event to dynamically added delete buttons
+    $("#addrow").on("click", ".delentry", function(e) {
+      // Get the parent row of the button that was clicked
+      var row = $(e.target).closest('tr');
+
+      // Remove the parent row from the table
+      row.remove();
+    });
+  });
 </script>

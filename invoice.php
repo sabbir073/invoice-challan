@@ -218,11 +218,45 @@ $id  = end($id);
                                             ?>
                                             </tbody>
                                         </table>
+                                        <table class="table table-bordered">
+                                        <tbody>
+                                            <tr>
+                                            <td style="width: 80%;"><strong>Total:</strong></td>
+                                            <?php
+                                                // Run the SQL query
+                                                $sql = "SELECT SUM(quantity) AS total FROM challan WHERE challan_no = '$id'";
+                                                $result = mysqli_query($link, $sql);
+
+                                                // Fetch the result and display it
+                                                if (mysqli_num_rows($result) > 0) {
+                                                    while($row = mysqli_fetch_assoc($result)) {
+                                                        echo "<td style='width: 20%; text-align: right; padding-right:50px;'>".$row['total']."</td>";
+                                                    }
+                                                }
+                                            ?>
+                                            
+                                            </tr>
+                                        </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
                             <div class="table-outer pt-3 mb-30">
-                            <center><h5 class="text-dark">[This is remarks]</h5></center>
+
+                            <?php
+                                // Run the SQL query
+                                $sql = "SELECT DISTINCT remarks FROM challan WHERE challan_no = '$id'";
+                                $result = mysqli_query($link, $sql);
+
+                                // Fetch the result and display it
+                                if (mysqli_num_rows($result) > 0) {
+                                    while($row = mysqli_fetch_assoc($result)) {
+                                        echo "<center><h5 class='text-dark'>".$row['remarks']."</h5></center>";
+                                    }
+                                }
+                            ?>
+
+                            
                             </div>
                             
                             <div class="invoice-bottom">

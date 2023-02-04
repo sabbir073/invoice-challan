@@ -126,7 +126,31 @@ $id  = end($id);
                                             </thead>
 
                                             <tbody>
-                                                
+                                            <?php
+                                                $i = 1;
+                                                $product_query = "SELECT DISTINCT product_name, job_number, remarks FROM challan WHERE challan_no = '$id'";
+                                                $product_result = mysqli_query($link, $product_query);
+                                                while ($product = mysqli_fetch_assoc($product_result)){
+                                                    echo "<tr>";
+                                                    echo "<td>".$i."</td>";
+                                                    echo "<td>".$product['product_name']." </td>";
+                                                    // Run the SQL query
+                                                    $sql = "SELECT SUM(quantity) AS total FROM challan WHERE product_name = '".$product['product_name']."'";
+                                                    $result = mysqli_query($link, $sql);
+
+                                                    // Fetch the result and display it
+                                                    if (mysqli_num_rows($result) > 0) {
+                                                        while($row = mysqli_fetch_assoc($result)) {
+                                                            echo "<td>".$row['total']."</td>";
+                                                        }
+                                                    }
+                                                    echo "<td>".$product['job_number']." </td>";
+                                                    echo "<td>".$product['remarks']." </td>";
+                                                    $i++;
+
+                                                }
+
+                                            ?>
                                             </tbody>
                                         </table>
                                     </div>
@@ -150,10 +174,10 @@ $id  = end($id);
                     
                     <div class="invoice-btn-section clearfix d-print-none">
                         <a href="javascript:window.print()" class="btn btn-lg btn-print">
-                            <i class="fa fa-print"></i> Print Challan
+                            <i class="fa fa-print"></i> Print Gate Pass
                         </a>
                         <a id="invoice_download_btn" class="btn btn-lg btn-download btn-theme">
-                            <i class="fa fa-download"></i> Download Challan
+                            <i class="fa fa-download"></i> Download Gate Pass
                         </a>
                     </div>
                 </div>
