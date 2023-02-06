@@ -1,10 +1,10 @@
 /*-----------------------------------------------------------------------------------
 
-    Template Name: Challan Software Xubisoft Ltd
-    Template URI: xubisoft.com
-    Description: This is challan software
-    Author: Md Sabbir Ahmed
-    Author URI: https://facebook.com/Fun2uze
+    Template Name: Universal Admin
+    Template URI: themes.pixelstrap.com/universal
+    Description: This is Admin theme
+    Author: Pixelstrap
+    Author URI: https://themeforest.net/user/pixelstrap
 
 -----------------------------------------------------------------------------------
 
@@ -2040,10 +2040,13 @@ table tbody .border-bottom-warning td {
     padding-bottom: 5px;
     margin-bottom: 8px;
     font-size: 18px; }
-  .card .card-footer {
-    background-color: #fff;
-    border-top: 1px solid #eeeeee;
-    padding: 30px; }
+    .card .card-footer {
+      background-color: #fff;
+      border-top: 1px solid #eeeeee;
+      padding: 30px;
+      text-align: center;
+    }
+    
 
 .opacity-0 {
   opacity: 0; }
@@ -2785,7 +2788,7 @@ ul.notification-dropdown.onhover-show-div {
   -webkit-transition: 0.5s;
   transition: 0.5s; }
   .page-wrapper .page-body-wrapper .page-sidebar .sidebar-user {
-    background-color: #f6f7fb;
+    background-color:rgb(0, 174, 239);
     padding: 25px 10px;
     -webkit-box-shadow: 3px 2px 8px -1px rgba(0, 0, 0, 0.13);
             box-shadow: 3px 2px 8px -1px rgba(0, 0, 0, 0.13); }
@@ -2794,7 +2797,7 @@ ul.notification-dropdown.onhover-show-div {
       -webkit-box-shadow: 0px 5px 22px 0px rgba(0, 0, 0, 0.2);
               box-shadow: 0px 5px 22px 0px rgba(0, 0, 0, 0.2); }
     .page-wrapper .page-body-wrapper .page-sidebar .sidebar-user h6 {
-      color: #2a3142;
+      color: white;
       position: relative;
       text-transform: uppercase; }
       .page-wrapper .page-body-wrapper .page-sidebar .sidebar-user h6 i {
@@ -23869,45 +23872,58 @@ body .page-wrapper .page-body-wrapper .page-sidebar.native-image-bg {
         i.nv-i {
           color: #00aeef;
         }
-        h6.mb-2.fs-14 {
-                  border: 1px solid #FFBF00;
-                  border-radius: 20px;
-                  background: #FFBF00;
-                  font-weight: 600;
-                  color: black;
-                  width: 160px;
-                  margin: auto;
-                  padding: 6px;
-                }
-  h6.mb-2.fs-14:hover{
-    background: white;
-  }
-
+ h6.mb-2.fs-14 {
+   border: rgb(28 28 28);
+   border-radius: 20px;
+   background: rgb(0, 174, 239);
+   font-weight: 400;
+   color: white;
+   width: 160px;
+   margin: auto;
+   font-size: 14px;
+   padding: 6px;
+ }
   /* Add Challan */
 
-textarea#clientcompanyaddress {
-  background-color: white;
+    label.col-form-label.pt-0 {
+      color: black;
+      font-weight: 600;
+    }
+        select#clientcompanyname {
+          background-color: #e9ecef;
+        }
+    input#clientname {
+      background-color: #e9ecef;
+    }
+    input#styleno {
+      background-color: #e9ecef;
+    }
+input#jobno {
+  background-color: #e9ecef;
 }
-    select#desofgood {
-      background-color: aquamarine;
-      color: black;
-    }
+
+textarea#clientcompanyaddress {
+  background-color: white !important;
+}
+     select#desofgood {
+       background-color: #e9ecef;
+       color: black;
+     }
   
-    select#color {
-      background-color: lightblue;
-      color: black;
-    }
-  
+     select#color {
+       background-color: white;
+       color: black;
+     }
     select#size {
-      background-color: beige;
+      background-color: #e9ecef;
       color: black;
     }
   
     input#quantity {
-      background-color: #e9ecef;
+      background-color: white;
     }
 
-    /* Add New Product */
+    /* Add New clients */
         textarea#productdescription {
           background-color: aliceblue;
         }

@@ -27,7 +27,7 @@
                         <div class="row">
                             <div class="col-sm-12 col-xl-6">
                                 <div class="card">
-                                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" class="theme-form">
+                                <form class="theme-form">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="mb-3 col-md-6">

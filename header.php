@@ -169,7 +169,6 @@ include("config.php");
                         <li><a href="challan-all.php"><i class="fa fa-angle-right"></i>View All</a></li>
                     </ul>
                 </li>
-                <?php if($_SESSION["role"] && $_SESSION["role"] == "admin") { ?>
                 <li>
                     <a href="javascript:void(0)" class="sidebar-header">
                         <i class="fa-brands fa-product-hunt nv-i"></i> <span>Products</span>
@@ -241,11 +240,10 @@ include("config.php");
                         <li><a href="clients-all.php"><i class="fa fa-angle-right"></i>View All</a></li>
                     </ul>
                 </li>
-                <?php } ?>
             </ul>
             <div class="sidebar-widget text-center">
                 <div class="sidebar-widget-top">
-                    <h6 class="mb-2 fs-14">Need Help</h6>
+                    <h6 class="mb-2 fs-14">Get In Touch</h6>
                     <i class="icon-bell"></i>
                 </div>
                 <div class="sidebar-widget-bottom p-20 m-20">
