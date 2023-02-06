@@ -59,10 +59,14 @@ include("header.php");
                                                       </a>
                                                       <a target="_blank" href="gatepass.php/'.$row["challan_no"].'" class="btn btn-primary btn-sm">
                                                         <i class="fas fa-eye"></i> Gate Pass
-                                                      </a>
-                                                      <a href="#" data-id="'.$row["challan_no"].'" class="btn btn-danger btn-sm deleteinvo">
+                                                      </a>';
+                                                      if($_SESSION["role"] && $_SESSION["role"] == "admin") { 
+                                                        echo '<a href="#" data-id="'.$row["challan_no"].'" class="btn btn-danger btn-sm deleteinvo">
                                                         <i class="fas fa-trash"></i> Delete
-                                                      </a></td>
+                                                        </a>';
+
+                                                        }
+                                                     echo '</td>
                                                     </tr>';
                                             }
                                             /* free result set */
